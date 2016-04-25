@@ -14,7 +14,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 });
 
 chrome.contextMenus.create({
-	"title": "Player-in-player",
+	"title": "Picture-in-Picture",
 	"id": "YPIP",
 	"contexts": ["frame"],
 });
