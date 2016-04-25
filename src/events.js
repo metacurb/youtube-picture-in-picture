@@ -1,3 +1,10 @@
+chrome.runtime.onInstalled.addListener(function (details) {
+    if (details.reason == "install") {
+		var newURL = "http://www.beaugust.co.uk/ypip";
+		chrome.tabs.create({ url: newURL });
+    }
+});
+
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 	if (request && request.action === 'createWindow' && request.url) {
 		chrome.windows.create({
