@@ -4,7 +4,7 @@
   "name": "YouTube Picture-in-Picture",
   "short_name": "YPIP",
   "description": "Keep your YouTube videos visible at all times!",
-  "version": "1.12",
+  "version": "1.13",
 
   "icons": { "210": "icon.png" 
   },
@@ -27,7 +27,6 @@
 
   "permissions": [
    "activeTab", 
-   "tabs",
    "contextMenus"
    ]
 }
