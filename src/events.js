@@ -20,10 +20,12 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 	}
 });
 
-chrome.contextMenus.create({
-	"title": "Picture-in-Picture",
-	"id": "YPIP",
-	"contexts": ["frame"],
+chrome.runtime.onInstalled.addListener(function() {
+	chrome.contextMenus.create({
+		"title": "Picture-in-Picture",
+		"id": "YPIP",
+		"contexts": ["frame"],
+	});
 });
 
 chrome.contextMenus.onClicked.addListener(function(source) {
