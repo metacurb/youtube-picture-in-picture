@@ -1,12 +1,26 @@
-$("<a href='#' id='upload-btn' class='yt-uix-button-default yt-uix-button popout-button'><span class='yt-uix-button-content'>Pop Out</span></a>").prependTo('#yt-masthead-signin, #yt-masthead-user');
+function addButton() {
+	var unregBool = !!document.getElementById('yt-masthead-signin');
+	var unreg = document.getElementById('yt-masthead-signin');
+	var reg = document.getElementById('yt-masthead-user');
+	popButton = document.createElement('a');
+	popButton.className = 'yt-uix-button-default yt-uix-button popout-button';
+	popButton.id = 'upload-btn';
+	popButton.innerHTML = '<span class="yt-uix-button-content">Pop Out</span>';
 
-$(document).ready(function() {
+	if (unregBool) {
+		unreg.insertBefore(popButton, unreg.firstChild);	
+	} else {
+		reg.insertBefore(popButton, reg.firstChild);	
+	}
+}
+
+function popOut() {
 	var popOut = document.getElementsByClassName("popout-button");
 	popOut[0].addEventListener("click", function(e) {
 		e.preventDefault();
 		urlCheck();
 	});
-});
+}
 
 function urlCheck() {
 	var CurrentPage = window.location.href;
@@ -26,8 +40,8 @@ function createPopUp(GoodLink) {
 	chrome.runtime.sendMessage({
 		action: 'createWindow',
 		url: GoodLink
-	},
-	function(createdWindow) {
-		console.log(createdWindow);
 	});
 }
+
+addButton();
+popOut();

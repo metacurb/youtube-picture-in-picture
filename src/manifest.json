@@ -4,7 +4,7 @@
   "name": "YouTube Picture-in-Picture",
   "short_name": "YPIP",
   "description": "Keep your YouTube videos visible at all times!",
-  "version": "1.22",
+  "version": "1.30",
 
   "icons": { "210": "icon.png" 
   },
@@ -12,7 +12,8 @@
   "content_scripts": [
     {
       "matches": ["https://www.youtube.com/*"],
-      "js": ["jquery.min.js", "popup.js"]
+      "js": ["popup.js"],
+      "run_at": "document_end"
     }
   ],
 
